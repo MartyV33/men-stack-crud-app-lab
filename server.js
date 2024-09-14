@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const path = require('path');
 const app = express();
 
-app.set('views', path.join(_dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,7 +15,11 @@ app.get('/test', (req, res) => {
     res.send('Server is running properly!');
 });
 
-const PORT = 3000;
+const PORT = 1500;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+});
+
+app.get('/', (req, res) => {
+    res.render('index');
 });
