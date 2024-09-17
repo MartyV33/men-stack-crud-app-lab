@@ -14,6 +14,19 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+// The RESTful Routes for Food Items
+/*
+| HTTP Method | Route         | Action | Description                               |
+|----------------------------------------------------------------------------------|
+| GET         | /foods        | Idex   | Display a list of food items              |
+| GET         | /foods/new    | New    | Shows a form to create a new food item    |
+| POST        | /foods        | Create | Creates a new food item                   |
+| GET         | /foods/:id    | Show   | Displays a specific food item by its ID   |
+| GET         |/foods/:id/edit| Edit   | Shows a form to edit an existing food item|
+| PUT         | /foods/:id    | Update | Updates a specific food item by its ID    |
+| DELETE      | /foods/:id    | Destroy| Deletes a specific food item by its ID    |
+*/
+
 app.get('/test', (req, res) => {
     res.send('Server is running properly!');
 });
