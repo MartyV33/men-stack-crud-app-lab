@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%= food.name %></title>
+</head>
+<body>
+    <h1>Edit <%= food.name %></h1>
+    <form action="/foods/<%= food._id %>?_method=PUT" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= food.name %>" required>
+        <br>
+        <label for="calories">Calories:</label>
+        <input type="number" id="calories" name="calories" value="<%= food.calories %>">
+        <br>
+        <label for="protein">Protein:</label>
+        <input type="number" id="protein" name="protein" value="<%= food.protein %>">
+        <br>
+        <label for="carbs">Carbs:</label>
+        <input type="number" id="carbs" name="carbs" value="<%= food.carbs %>">
+        <br>
+        <label for="fat">Fat:</label>
+        <input type="number" id="fat" name="fat" value="<%= food.fat %>">
+        <br>
+        <button type="submit">Update Food</button>
+  </form>
+  <a href="/foods/<%= food._id %>">Cancel</a>
+</body>
+</html>
