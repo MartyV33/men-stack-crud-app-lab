@@ -34,9 +34,15 @@ app.get('/foods/new', (req, res) => {
     res.render('new');
 });
 
-app.get('/foods', async (rec, res) => {
-    const foods = await Food.find({});
-    res.render('index', { foods });
+app.get('/foods', async (req, res) => {
+    try {
+        const foods = await Food.find({});
+        console.log(foods); // Check if foods is populated
+        res.render('index', { foods });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 app.get('/foods/:id', async (req, res) => {
@@ -69,12 +75,11 @@ mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Could not connect to MongoDB', err));
 
-
-const PORT = 1500;
+const PORT = 1550;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.redirect('/foods');
 });

@@ -9,7 +9,8 @@
     <h1>Food List</h1>
     <ul>
         <% foods.forEach(food => { %>
-        <li><a href="/foods/<%= food._id %>"><%= food.name %></a></li> <% }) %>
+            <li><a href="/foods/<%= food._id %>"><%= food.name %></a></li>
+        <% }) %>
     </ul>
     <a href="/foods/new">Add New Food</a>
 </body>
